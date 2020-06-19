@@ -1,0 +1,117 @@
+*{
+    box-sizing: border-box;
+}
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.control-button
+{
+    background-color:rgba(3, 169, 244, .8) ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+
+}
+.control-button span
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    
+}
+.info-container
+{
+    width: 1080px;
+    margin: 20px auto 0;
+    font-size: 24px;
+    overflow: hidden;
+    padding: 20px;
+    border: 2px solid #2196f3;
+    background-color: #f6f6f6;
+    
+}
+.info-container .name
+{
+    float: left;
+    width: 50%;
+}
+.info-container .trise
+{
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+.memory-game-block
+{
+    width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+.memory-game-block.no-clicking
+{
+    pointer-events: none;
+}
+.memory-game-block .game-block
+{
+    height: 200px;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    position: relative;
+    flex: 1 0 200px;
+    margin: 0 10px 20px;
+    cursor: pointer;
+
+}
+.memory-game-block .game-block .front
+{
+    background-color: black;
+    line-height: 200px;
+}
+.memory-game-block .game-block .front::after
+{
+    content: "!";
+    color: white;
+    font-size: 140px;
+    font-weight: bolder;
+}
+.memory-game-block .game-block .back
+{
+    background-color: #333;
+    transform: rotatey(180deg);
+
+}
+.memory-game-block .game-block .back img
+{
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+}
+.memory-game-block .game-block .face
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f3;  
+}
+.memory-game-block .game-block.is-flipped,
+.memory-game-block .game-block.has-match
+{
+  
+ transform: rotatey(180deg);
+ pointer-events: none;
+}
